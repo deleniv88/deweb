@@ -1,0 +1,182 @@
+{
+  "seo": {
+    "title": "Deweb studio — Websites that turn visitors into clients",
+    "description": "Design, code and AI in one place: scalable websites built to feed your marketing."
+  },
+  "hero": {
+    "titleLine1": "Websites that turn",
+    "titleLine2": "visitors into clients",
+    "lead": "Design, code and AI in one place: scalable websites built to feed your marketing.",
+    "ctaLabel": "Get a free quote",
+    "ctaHref": "#contact",
+    "photo": "/uploads/photo.webp",
+    "photoAlt": "Andrii, founder of Deweb studio",
+    "name": "Andrew Deleniv",
+    "stats": [
+      {
+        "value": "70+",
+        "label": "completed websites"
+      },
+      {
+        "value": "6",
+        "label": "years of experience"
+      },
+      {
+        "value": "12",
+        "label": "months of support included"
+      }
+    ]
+  },
+  "work": {
+    "titleAccent": "Recent",
+    "titleRest": "work",
+    "lead": "Different niches, one goal:\nturning visitors into clients.",
+    "buttonLabel": "See all work",
+    "buttonHref": "#projects",
+    "cases": [
+      {
+        "image": "/uploads/dieselprog.webp",
+        "category": "Automotive · Corporate website",
+        "name": "DieselProg",
+        "description": "Chiptuning and diesel workshop in Wrocław.",
+        "url": "https://dieselprog.pl"
+      },
+      {
+        "image": "/uploads/porady-lekarskie.webp",
+        "category": "Medicine · One-page site",
+        "name": "Dr. Michał Domaszewski",
+        "description": "Personal site for a Warsaw doctor with 400k+ followers.",
+        "url": ""
+      },
+      {
+        "image": "/uploads/kk-consulting.webp",
+        "category": "Accounting · Corporate website",
+        "name": "K&K Consulting Group",
+        "description": "Accounting and tax firm in Wrocław.",
+        "url": ""
+      },
+      {
+        "image": "/uploads/nautilus.webp",
+        "category": "Restaurant · Landing page",
+        "name": "Nautilus Oyster Bar",
+        "description": "Oyster bar in Tallinn with table reservations and private events.",
+        "url": ""
+      },
+      {
+        "image": "/uploads/blissti.webp",
+        "category": "Beauty · Landing page",
+        "name": "Blissti Beauty Studio",
+        "description": "Beauty studio in Warsaw with online booking.",
+        "url": ""
+      },
+      {
+        "image": "/uploads/linkset.webp",
+        "category": "IT services · Corporate website",
+        "name": "Linkset",
+        "description": "Corporate site for an IT outsourcing company.",
+        "url": ""
+      }
+    ]
+  },
+  "services": {
+    "titleAccent": "Services",
+    "titleRest": "for every goal",
+    "lead": "Pick the format that fits where your business is right now.",
+    "note": "Not sure which one you need? Describe your task, and I'll suggest the right format.",
+    "items": [
+      {
+        "type": "One-page site",
+        "timeline": "Timeline: 2–3 weeks",
+        "name": "Landing page",
+        "description": "For when you need to present a service or product and start getting requests fast. One page where everything leads to the contact form.",
+        "features": [
+          "Structure built for conversion",
+          "Request form with alerts to Telegram or email",
+          "Looks sharp on every screen",
+          "Great for experts, new services and ad campaigns"
+        ],
+        "buttonLabel": "Discuss project",
+        "buttonHref": "#contact",
+        "image": "/uploads/service-landing.webp"
+      },
+      {
+        "type": "Multi-page site",
+        "timeline": "Timeline: 4–8 weeks",
+        "name": "Corporate website",
+        "description": "For when you offer several services and clients want details before they reach out. A page for every service helps both clients and Google.",
+        "features": [
+          "Separate pages for services, about, cases and blog",
+          "SEO-ready structure from day one",
+          "Multilingual: PL · UA · EN",
+          "You edit texts and photos yourself"
+        ],
+        "buttonLabel": "Discuss project",
+        "buttonHref": "#contact",
+        "image": "/uploads/service-corporate.webp"
+      },
+      {
+        "type": "E-commerce",
+        "timeline": "Timeline: on request",
+        "name": "Online store",
+        "description": "For when you sell products and want to take orders and payments online, without marketplaces in between.",
+        "features": [
+          "Catalog with categories and filters",
+          "Cart, online payments and delivery options",
+          "Manage products without a developer"
+        ],
+        "buttonLabel": "Discuss project",
+        "buttonHref": "#contact",
+        "image": "/uploads/service-store.webp"
+      }
+    ]
+  },
+  "features": {
+    "titleAccent": "Every",
+    "titleRest": "site includes",
+    "lead": "Six things built into every website. Scroll, click, or just watch.",
+    "items": [
+      {
+        "icon": "fast",
+        "name": "Fast loading",
+        "description": "Pages open in about a second, even on mobile.",
+        "image": "/uploads/feature-fast.webp",
+        "imageAlt": "Lighthouse report: 95 Performance, 95 Accessibility, 100 Best Practices, 100 SEO"
+      },
+      {
+        "icon": "devices",
+        "name": "Looks right everywhere",
+        "description": "Phone, tablet or laptop, the same quality.",
+        "image": "/uploads/feature-responsive.webp",
+        "imageAlt": "The same website shown on laptop, tablet and mobile"
+      },
+      {
+        "icon": "edit",
+        "name": "Edit it yourself",
+        "description": "Change texts and photos without a developer.",
+        "image": "",
+        "imageAlt": ""
+      },
+      {
+        "icon": "inbox",
+        "name": "No lost requests",
+        "description": "Each one goes to your email, CRM or Google Sheets.",
+        "image": "",
+        "imageAlt": ""
+      },
+      {
+        "icon": "chart",
+        "name": "Clear analytics",
+        "description": "Google Analytics shows where your clients come from.",
+        "image": "",
+        "imageAlt": ""
+      },
+      {
+        "icon": "globe",
+        "name": "Multilingual",
+        "description": "Any language when you need it.",
+        "image": "",
+        "imageAlt": ""
+      }
+    ]
+  }
+}
