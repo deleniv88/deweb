@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.env
+.env.local
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+# адмінка і згенерований клієнт Tina збираються при кожному build
+public/admin
+tina/__generated__
