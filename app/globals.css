@@ -83,15 +83,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   z-index:2;
 }
 .hero__photo picture{display:contents}
+.hero__photo{
+  /* тінь рахується від уже "розтушованого" фото, тож теж плавно зникає знизу */
+  filter:
+    drop-shadow(calc(13 * var(--u)) 0 calc(14 * var(--u)) rgba(0,0,0,.10))
+    drop-shadow(calc(50 * var(--u)) 0 calc(25 * var(--u)) rgba(0,0,0,.06));
+}
 .hero__photo img{
   width:100%;
   height:100%;
   object-fit:contain;
   object-position:50% 100%;
-  /* тінь по контуру вирізаного фото (замість прямокутної тіні з Figma) */
-  filter:
-    drop-shadow(calc(13 * var(--u)) 0 calc(14 * var(--u)) rgba(0,0,0,.10))
-    drop-shadow(calc(50 * var(--u)) 0 calc(25 * var(--u)) rgba(0,0,0,.06));
+  /* плавне зникнення фото знизу — прозорістю, тож крізь нього видно фон і напис DEWEB */
+  -webkit-mask-image:linear-gradient(to bottom, #000 72%, transparent 100%);
+  mask-image:linear-gradient(to bottom, #000 72%, transparent 100%);
 }
 
 /* Підпис біля фото */
