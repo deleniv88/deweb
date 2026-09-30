@@ -1212,7 +1212,7 @@ a:hover > .i-arrow{transform:translate(calc(2 * var(--s)), calc(-2 * var(--s)))}
 .pl__title span{font-weight:300;color:var(--accent-b)}
 .pl__note{font-family:var(--f-body);font-size:calc(20 * var(--s));line-height:1.45;text-align:right}
 
-.pl__scroll{overflow-x:auto;scrollbar-width:thin}
+.pl__scroll{overflow:visible}
 .pl__gantt{
   position:relative;
   display:grid;
@@ -1292,6 +1292,11 @@ a:hover > .i-arrow{transform:translate(calc(2 * var(--s)), calc(-2 * var(--s)))}
 .pl__tip em{font-style:normal;font-weight:600;color:#aab2ff}
 .pl__bar:hover .pl__tip,.pl__bar:focus-visible .pl__tip{opacity:1;transform:none}
 .pl__bar.is-right .pl__tip{left:auto;right:0}
+/* у перших рядках підказка з'являється знизу, щоб не вилазити на заголовок і не обрізатись */
+.pl__bar.is-below .pl__tip{bottom:auto;top:calc(100% + 10 * var(--s));transform:translateY(calc(-6 * var(--s)))}
+.pl__bar.is-below:hover .pl__tip,.pl__bar.is-below:focus-visible .pl__tip{transform:none}
+/* активна смуга піднімається над сусідніми, щоб підказка не ховалась під ними */
+.pl__bar:hover,.pl__bar:focus-visible{z-index:6}
 
 /* лінія "Today", що пробігає по графіку */
 .pl__now{position:absolute;z-index:3;top:calc(48 * var(--s));bottom:0;left:0;width:2px;border-radius:2px;background:#4b5aff;opacity:0;pointer-events:none}
@@ -1312,7 +1317,7 @@ a:hover > .i-arrow{transform:translate(calc(2 * var(--s)), calc(-2 * var(--s)))}
   .pl__top{flex-direction:column;align-items:flex-start;gap:calc(12 * var(--s))}
   .pl__title{font-size:calc(56 * var(--s))}
   .pl__note{text-align:left;font-size:calc(17 * var(--s))}
-  .pl__scroll{margin:0 calc(-32 * var(--s));padding:0 calc(32 * var(--s))}
+  .pl__scroll{overflow-x:auto;scrollbar-width:thin;margin:0 calc(-32 * var(--s));padding:0 calc(32 * var(--s))}
   .pl__gantt{min-width:calc(1100 * var(--s))}
   .pl__foot{flex-wrap:wrap}
 }
@@ -1343,6 +1348,7 @@ a:hover > .i-arrow{transform:translate(calc(2 * var(--s)), calc(-2 * var(--s)))}
   .pl__mt::before{content:"";position:absolute;top:0;bottom:0;left:calc((var(--st) - 1) / 21 * 100%);width:calc(var(--sp) / 21 * 100%);border-radius:inherit;background:var(--c2)}
   .pl__tip{grid-column:2 / span 2;grid-row:3;position:static;width:auto;margin-top:calc(8 * var(--s));padding:0;background:none;box-shadow:none;color:var(--ink-50);opacity:1;transform:none;font-size:calc(14 * var(--s))}
   .pl__tip b{display:none}
+  .pl__bar.is-below .pl__tip,.pl__bar.is-below:hover .pl__tip{transform:none}
   .pl__tip em{display:table;padding:calc(4 * var(--s)) calc(9 * var(--s));border-radius:calc(8 * var(--s));background:rgba(94,108,255,.1);color:var(--accent-b);font-size:calc(12 * var(--s))}
   .pl__bar--solid{--c:#5e6cff;--ci:#fff;--c2:#5e6cff}
   .pl__bar--soft{--c:rgba(135,145,255,.28);--ci:#4b5aff;--c2:#8791ff}
