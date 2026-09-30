@@ -116,7 +116,7 @@
       },
       {
         "type": "E-commerce",
-        "timeline": "Timeline: on request",
+        "timeline": "Timeline: 6+ weeks",
         "name": "Online store",
         "description": "For when you sell products and want to take orders and payments online, without marketplaces in between.",
         "features": [
@@ -153,8 +153,8 @@
         "icon": "edit",
         "name": "Edit it yourself",
         "description": "Change texts and photos without a developer.",
-        "image": "",
-        "imageAlt": ""
+        "image": "/uploads/feature-edit.webp",
+        "imageAlt": "Admin panel: editing the site texts and photos right on the page"
       },
       {
         "icon": "inbox",
@@ -176,6 +176,85 @@
         "description": "Any language when you need it.",
         "image": "",
         "imageAlt": ""
+      }
+    ]
+  },
+  "projectLine": {
+    "title": "Project line",
+    "note": "Example timeline for a corporate website.\nA landing page takes about half of it.",
+    "hint": "Hover a step to see what you get at the end of it.",
+    "buttonLabel": "Plan my project",
+    "buttonHref": "#contact",
+    "steps": [
+      {
+        "name": "Audience",
+        "icon": "users",
+        "start": 1,
+        "span": 4,
+        "variant": "solid",
+        "when": "Week 1",
+        "description": "Who your clients are and what makes them trust.",
+        "result": "Client profile"
+      },
+      {
+        "name": "Competitors",
+        "icon": "chart",
+        "start": 2,
+        "span": 4,
+        "variant": "soft",
+        "when": "Week 1",
+        "description": "What the top competitors do well and where they fall short.",
+        "result": "Competitor review"
+      },
+      {
+        "name": "Structure",
+        "icon": "sitemap",
+        "start": 5,
+        "span": 4,
+        "variant": "light",
+        "when": "Week 1–2",
+        "description": "Pages, sections and the path to a request.",
+        "result": "Sitemap & wireframes"
+      },
+      {
+        "name": "Design",
+        "icon": "palette",
+        "start": 7,
+        "span": 7,
+        "variant": "gradient",
+        "when": "Week 2–3",
+        "description": "A design direction first, then every page in Figma.",
+        "result": "Figma design"
+      },
+      {
+        "name": "Development",
+        "icon": "code",
+        "start": 11,
+        "span": 8,
+        "variant": "solid",
+        "when": "Week 3–4",
+        "description": "WordPress or custom code, fast and easy to edit.",
+        "result": "Working site"
+      },
+      {
+        "name": "Launch",
+        "icon": "rocket",
+        "start": 18,
+        "span": 3,
+        "variant": "dark",
+        "when": "Week 4",
+        "description": "Domain, hosting, analytics and a handover session.",
+        "result": "Live site"
+      },
+      {
+        "name": "Support",
+        "icon": "headset",
+        "start": 20,
+        "span": 2,
+        "variant": "outline",
+        "when": "Week 4 → ongoing",
+        "description": "Updates, fixes and small changes after launch.",
+        "result": "Ongoing care"
       }
     ]
   }

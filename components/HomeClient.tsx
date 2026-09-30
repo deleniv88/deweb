@@ -3,7 +3,7 @@
 import { useTina, tinaField } from "tinacms/dist/react";
 import Header from "./Header";
 import Behaviors from "./Behaviors";
-import { featureIcons, ArrowUpRight, CheckCircle, Lines } from "./Icons";
+import { featureIcons, stepIcons, HandIcon, ArrowUpRight, CheckCircle, Lines } from "./Icons";
 
 type Props = {
   query: string;
@@ -17,12 +17,13 @@ type Props = {
 export default function HomeClient(props: Props) {
   const { data } = useTina(props);
   const home = data.home;
-  const { hero, work, services, features } = home;
+  const { hero, work, services, features, projectLine } = home;
 
   const cases = (work?.cases || []).filter(Boolean);
   const svcItems = (services?.items || []).filter(Boolean);
   const featItems = (features?.items || []).filter(Boolean);
-  const depsKey = `${cases.length}-${svcItems.length}-${featItems.length}`;
+  const steps = (projectLine?.steps || []).filter(Boolean);
+  const depsKey = `${cases.length}-${svcItems.length}-${featItems.length}-${steps.length}`;
 
   return (
     <>
@@ -227,6 +228,71 @@ export default function HomeClient(props: Props) {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ================= PROJECT LINE ================= */}
+      <section className="pl" id="process" aria-labelledby="pl-title" data-pl>
+        <div className="pl__card" key={depsKey}>
+          <div className="pl__top">
+            <h2 className="pl__title" id="pl-title"><span>/</span> <span style={{ color: "inherit", fontWeight: 400 }} data-tina-field={tinaField(projectLine, "title")}>{projectLine?.title}</span></h2>
+            <p className="pl__note" data-tina-field={tinaField(projectLine, "note")}><Lines text={projectLine?.note} /></p>
+          </div>
+
+          <div className="pl__scroll">
+            <div className="pl__gantt" style={{ ["--n" as any]: steps.length || 1 }}>
+              <span className="pl__hline" aria-hidden="true"></span>
+              {["Week 1", "Week 2", "Week 3", "Week 4"].map((w, k) => (
+                <span className="pl__week" key={w} style={{ gridColumn: `${k * 5 + 1} / span 5` }}>{w}</span>
+              ))}
+              <span className="pl__week" style={{ gridColumn: 21 }}>∞</span>
+              {Array.from({ length: 20 }).map((_, k) => (
+                <span className="pl__day" key={k} style={{ gridColumn: k + 1 }}>{["Mon", "Tue", "Wed", "Thu", "Fri"][k % 5]}</span>
+              ))}
+              <span className="pl__day" style={{ gridColumn: 21 }}>After</span>
+              {[6, 11, 16, 21].map((c) => (
+                <span className="pl__vline" key={c} style={{ gridColumn: c }} aria-hidden="true"></span>
+              ))}
+              <div className="pl__mhead" aria-hidden="true"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>∞</span></div>
+
+              {steps.map((st: any, i: number) => {
+                const start = Math.min(21, Math.max(1, Number(st.start) || 1));
+                const span = Math.max(1, Math.min(22 - start, Number(st.span) || 1));
+                return (
+                  <div
+                    className={`pl__bar pl__bar--${st.variant || "solid"}${start + span > 16 ? " is-right" : ""}`}
+                    key={i}
+                    tabIndex={0}
+                    style={{ ["--row" as any]: i + 3, ["--st" as any]: start, ["--sp" as any]: span, ["--i" as any]: i }}
+                    data-tina-field={tinaField(st)}
+                  >
+                    <span className="pl__in">
+                      {stepIcons[st.icon] || stepIcons.users}
+                      <span className="pl__name">{st.name}</span>
+                      <span className="pl__when">{st.when}</span>
+                      <i className="pl__knob" aria-hidden="true"></i>
+                    </span>
+                    <span className="pl__mt" aria-hidden="true"></span>
+                    <span className="pl__tip">
+                      <b>{String(i + 1).padStart(2, "0")} · {st.name}</b>
+                      {st.description}
+                      {st.result && <em>→ {st.result}</em>}
+                    </span>
+                  </div>
+                );
+              })}
+              <span className="pl__now" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div className="pl__foot">
+            <span className="pl__hint" data-tina-field={tinaField(projectLine, "hint")}><HandIcon />{projectLine?.hint}</span>
+            <a className="btn-primary" href={projectLine?.buttonHref || "#contact"} data-tina-field={tinaField(projectLine, "buttonLabel")}>
+              <span>{projectLine?.buttonLabel}</span>
+              <ArrowUpRight />
+            </a>
           </div>
         </div>
       </section>
