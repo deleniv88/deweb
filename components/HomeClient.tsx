@@ -262,7 +262,7 @@ export default function HomeClient(props: Props) {
                 const span = Math.max(1, Math.min(22 - start, Number(st.span) || 1));
                 return (
                   <div
-                    className={`pl__bar pl__bar--${st.variant || "solid"}${start + span > 16 ? " is-right" : ""}`}
+                    className={`pl__bar pl__bar--${st.variant || "solid"}${start + span > 16 ? " is-right" : ""}${i < 2 ? " is-below" : ""}`}
                     key={i}
                     tabIndex={0}
                     style={{ ["--row" as any]: i + 3, ["--st" as any]: start, ["--sp" as any]: span, ["--i" as any]: i }}
