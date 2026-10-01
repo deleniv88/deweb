@@ -434,7 +434,7 @@ export default function HomeClient(props: Props) {
               ))}
             </nav>
           </div>
-          <svg className="ft__mark" viewBox="0 0 1000 214" aria-hidden="true"><text x="0" y="200" fontSize="262" textLength="1000" lengthAdjust="spacingAndGlyphs">DEWEB</text></svg>
+          <div className="ft__mark" aria-hidden="true"><span>DEWEB</span></div>
           <div className="ft__bottom">
             <span data-tina-field={tinaField(footer, "copyright")}>{footer?.copyright}</span>
             <span data-tina-field={tinaField(footer, "middle")}>{footer?.middle}</span>

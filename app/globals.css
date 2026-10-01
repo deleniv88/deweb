@@ -1618,8 +1618,11 @@ a:hover > .i-arrow{transform:translate(calc(2 * var(--s)), calc(-2 * var(--s)))}
 .ft__links a{display:inline-flex;align-items:center;gap:calc(8 * var(--s));font-family:var(--f-body);font-weight:600;font-size:calc(16 * var(--s));transition:color .25s}
 .ft__links a:hover{color:var(--accent-b)}
 .ft__links svg{width:calc(18 * var(--s));height:calc(18 * var(--s))}
-.ft__mark{display:block;width:100%;height:auto;margin-top:calc(40 * var(--s))}
-.ft__mark text{font-family:var(--f-display);font-weight:700;fill:rgba(36,37,39,.05)}
+/* великий DEWEB: літери щільно (як у Figma: -9%), по ширині — рівно з карткою зверху */
+.ft__in{--ftw:calc(1560 * var(--s))}
+.ft__mark{display:flex;justify-content:center;margin-top:calc(var(--ftw) * .025);overflow:visible;pointer-events:none;user-select:none}
+.ft__mark span{font-family:var(--f-display);font-weight:700;font-size:calc(var(--ftw) * .3537);line-height:.8;letter-spacing:-.09em;white-space:nowrap;color:rgba(36,37,39,.05);
+  padding-right:.09em; /* компенсує від'ємний інтервал після останньої літери, щоб слово стояло по центру */}
 .ft__bottom{display:flex;justify-content:space-between;align-items:center;gap:calc(16 * var(--s));margin-top:calc(20 * var(--s));font-family:var(--f-body);font-weight:500;font-size:calc(15 * var(--s))}
 .ft__bottom a:hover{color:var(--accent-b)}
 
@@ -1671,10 +1674,37 @@ textarea.qf__in{height:calc(88 * var(--m));padding:calc(12 * var(--m)) calc(18 *
 .qm.is-sent .qf,.qm.is-sent .qm__head{display:none}
 .qm.is-sent .qm__ok{display:block}
 
-/* плаваюча кнопка "Get a free quote" — у стилі інших кнопок, без тіні */
-.quote-fab{position:fixed;z-index:80;left:50%;bottom:calc(20 * var(--s) + env(safe-area-inset-bottom,0px));transform:translate(-50%,180%);transition:transform .5s cubic-bezier(.2,.8,.2,1), background-color .25s, border-color .25s}
+/* плаваюча кнопка — така сама, як "Get a free quote" у hero; з'являється, коли та зникає з екрана */
+.quote-fab{
+  position:fixed;
+  z-index:80;
+  left:50%;
+  bottom:calc(24 * var(--u) + env(safe-area-inset-bottom,0px));
+  width:calc(385 * var(--u));
+  height:calc(93 * var(--u));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:calc(24 * var(--u));
+  border-radius:calc(24 * var(--u));
+  background:linear-gradient(90deg,var(--accent-a) 0%,var(--accent-b) 100%);
+  box-shadow:inset 0 0 calc(30 * var(--u)) 0 var(--accent-glow), inset 0 0 calc(44 * var(--u)) 0 var(--accent-glow), inset 0 0 calc(44 * var(--u)) 0 #000;
+  color:#fff;
+  font-family:var(--f-display);
+  font-weight:700;
+  font-size:calc(24 * var(--u));
+  line-height:.9;
+  letter-spacing:-.04em;
+  text-transform:uppercase;
+  white-space:nowrap;
+  transform:translate(-50%,calc(100% + 40px));
+  transition:transform .5s cubic-bezier(.2,.8,.2,1), filter .25s ease;
+}
+.quote-fab svg{width:calc(24 * var(--u));height:calc(24 * var(--u));flex-shrink:0;transition:transform .25s ease}
+.quote-fab:hover{filter:brightness(1.08)}
+.quote-fab:hover svg{transform:translate(calc(-3 * var(--u)), calc(3 * var(--u)))}
 .quote-fab.is-shown{transform:translate(-50%,0)}
-html.is-locked .quote-fab{transform:translate(-50%,180%)}
+html.is-locked .quote-fab{transform:translate(-50%,calc(100% + 40px))}
 
 /* ---- Tablet ---- */
 @media (max-width:1279px){
@@ -1688,7 +1718,7 @@ html.is-locked .quote-fab{transform:translate(-50%,180%)}
   .faq__side{position:static}
   .faq__title{font-size:calc(56 * var(--s))}
   .qa__t{font-size:calc(20 * var(--s))}
-  .ft__in{width:calc(770 * var(--s))}
+  .ft__in{width:calc(770 * var(--s));--ftw:calc(770 * var(--s))}
   .ft__h{font-size:calc(56 * var(--s))}
   .ft__links{flex-wrap:wrap}
 }
@@ -1718,7 +1748,7 @@ html.is-locked .quote-fab{transform:translate(-50%,180%)}
   .qa__pm{width:calc(34 * var(--s));height:calc(34 * var(--s))}
   .qa__a p{padding:0 calc(16 * var(--s)) calc(18 * var(--s));font-size:calc(15 * var(--s))}
   .ft{padding:calc(100 * var(--s)) 0 calc(100 * var(--s))}
-  .ft__in{width:calc(358 * var(--s))}
+  .ft__in{width:calc(358 * var(--s));--ftw:calc(358 * var(--s))}
   .ft__card{padding:calc(64 * var(--s)) calc(6 * var(--s)) calc(6 * var(--s));border-radius:calc(24 * var(--s))}
   .ft__h{font-size:calc(38 * var(--s));padding:0 calc(14 * var(--s))}
   .ft__cta{font-size:calc(17 * var(--s))}
@@ -1732,5 +1762,6 @@ html.is-locked .quote-fab{transform:translate(-50%,180%)}
   .qf__chips{grid-template-columns:1fr 1fr}
   .qf__in{height:calc(46 * var(--m))}
   textarea.qf__in{height:calc(76 * var(--m))}
-  .quote-fab{width:calc(100% - 32px);justify-content:center}
+  .quote-fab{width:calc(100% - 40 * var(--u));height:calc(66 * var(--u));bottom:calc(16 * var(--u) + env(safe-area-inset-bottom,0px));border-radius:calc(20 * var(--u));font-size:calc(20 * var(--u));gap:calc(14 * var(--u))}
+  .quote-fab svg{width:calc(20 * var(--u));height:calc(20 * var(--u))}
 }

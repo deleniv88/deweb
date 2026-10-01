@@ -56,8 +56,9 @@ export default function QuoteModal({ form }: { form?: any }) {
           </div>
         </div>
       </div>
-      <button className="btn-primary quote-fab" type="button" data-open-quote data-fab aria-haspopup="dialog">
-        <span>{f.fabLabel || "Get a free quote"}</span><ArrowUpRight />
+      <button className="quote-fab" type="button" data-open-quote data-fab aria-haspopup="dialog">
+        <span>{f.fabLabel || "Get a free quote"}</span>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 7 7 17M7 17V9M7 17h8" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
     </>
   );

@@ -39,42 +39,42 @@
         "category": "Automotive · Corporate website",
         "name": "DieselProg",
         "description": "Chiptuning and diesel workshop in Wrocław.",
-        "url": "https://dieselprog.pl"
+        "url": "https://dieselprog.pl/"
       },
       {
         "image": "/uploads/porady-lekarskie.webp",
         "category": "Medicine · One-page site",
         "name": "Dr. Michał Domaszewski",
         "description": "Personal site for a Warsaw doctor with 400k+ followers.",
-        "url": ""
+        "url": "https://michaldomaszewski.pl/"
       },
       {
         "image": "/uploads/kk-consulting.webp",
         "category": "Accounting · Corporate website",
         "name": "K&K Consulting Group",
         "description": "Accounting and tax firm in Wrocław.",
-        "url": ""
+        "url": "https://kk-group.com.pl/"
       },
       {
         "image": "/uploads/nautilus.webp",
         "category": "Restaurant · Landing page",
         "name": "Nautilus Oyster Bar",
         "description": "Oyster bar in Tallinn with table reservations and private events.",
-        "url": ""
+        "url": "https://thenautilus.ee/"
       },
       {
         "image": "/uploads/blissti.webp",
         "category": "Beauty · Landing page",
         "name": "Blissti Beauty Studio",
         "description": "Beauty studio in Warsaw with online booking.",
-        "url": ""
+        "url": "https://blissti.pl/"
       },
       {
         "image": "/uploads/linkset.webp",
         "category": "IT services · Corporate website",
         "name": "Linkset",
         "description": "Corporate site for an IT outsourcing company.",
-        "url": ""
+        "url": "https://linkset.pl/"
       }
     ]
   },
@@ -362,22 +362,22 @@
       {
         "icon": "instagram",
         "label": "Instagram",
-        "url": "#"
+        "url": "https://www.instagram.com/deleniv"
       },
       {
         "icon": "telegram",
         "label": "Telegram",
-        "url": "#"
+        "url": "https://t.me/deleniv"
       },
       {
         "icon": "linkedin",
         "label": "LinkedIn",
-        "url": "#"
+        "url": "https://www.linkedin.com/in/andriideleniv/"
       },
       {
         "icon": "email",
         "label": "Email",
-        "url": "mailto:"
+        "url": "mailto:andrii.deleniv@gmail.com"
       }
     ],
     "copyright": "© 2026 · Andrew Deleniv",
