@@ -3,7 +3,7 @@
 import { useTina, tinaField } from "tinacms/dist/react";
 import Header from "./Header";
 import Behaviors from "./Behaviors";
-import { featureIcons, stepIcons, HandIcon, ArrowUpRight, CheckCircle, Lines } from "./Icons";
+import { featureIcons, stepIcons, HandIcon, ArrowUpRight, CheckCircle, Lines, PlayIcon, SoundOffIcon, SoundOnIcon } from "./Icons";
 
 type Props = {
   query: string;
@@ -17,13 +17,14 @@ type Props = {
 export default function HomeClient(props: Props) {
   const { data } = useTina(props);
   const home = data.home;
-  const { hero, work, services, features, projectLine } = home;
+  const { hero, work, services, features, projectLine, testimonials } = home;
 
   const cases = (work?.cases || []).filter(Boolean);
   const svcItems = (services?.items || []).filter(Boolean);
   const featItems = (features?.items || []).filter(Boolean);
   const steps = (projectLine?.steps || []).filter(Boolean);
-  const depsKey = `${cases.length}-${svcItems.length}-${featItems.length}-${steps.length}`;
+  const stories = (testimonials?.items || []).filter(Boolean);
+  const depsKey = `${cases.length}-${svcItems.length}-${featItems.length}-${steps.length}-${stories.length}`;
 
   return (
     <>
@@ -294,6 +295,51 @@ export default function HomeClient(props: Props) {
               <ArrowUpRight />
             </a>
           </div>
+        </div>
+      </section>
+
+
+      {/* ================= CLIENTS ABOUT US ================= */}
+      <section className="tst" id="reviews" aria-labelledby="tst-title" data-tst key={`tst-${depsKey}`}>
+        <div className="tst__head">
+          <h2 className="tst__title" id="tst-title">
+            <em data-tina-field={tinaField(testimonials, "titleAccent")}>{testimonials?.titleAccent}</em>{" "}
+            <span data-tina-field={tinaField(testimonials, "titleRest")}>{testimonials?.titleRest}</span>
+          </h2>
+          <p className="tst__lead" data-tina-field={tinaField(testimonials, "lead")}>{testimonials?.lead}</p>
+        </div>
+
+        <div className="tst__deck" tabIndex={0} aria-roledescription="carousel" aria-label="Client video stories">
+          {stories.map((t: any, i: number) => (
+            <article className="tst__card" key={i} data-pos={i === 0 ? "center" : i === 1 ? "right" : i === stories.length - 1 ? "left" : "hidden"} data-tina-field={tinaField(t)}>
+              {t.poster && <img className="tst__poster" src={t.poster} alt="" loading="lazy" decoding="async" />}
+              {t.video && (
+                <video className="tst__video" data-src={t.video} poster={t.poster || undefined} muted loop playsInline preload="none" aria-label={`Video review: ${t.name}`} />
+              )}
+              <span className="tst__shade" aria-hidden="true"></span>
+              <div className="tst__bars" aria-hidden="true">{stories.map((_: any, k: number) => <i key={k}></i>)}</div>
+              <div className="tst__top">
+                <span className="tst__ava">{t.avatar ? <img src={t.avatar} alt="" /> : t.avatarText}</span>
+                <span className="tst__who"><b>{t.name}</b><span>{t.company}</span></span>
+                <button className="tst__sound" type="button" aria-label="Unmute">
+                  <span className="off"><SoundOffIcon /></span>
+                  <span className="on"><SoundOnIcon /></span>
+                </button>
+              </div>
+              <button className="tst__play" type="button" aria-label={`Play ${t.name} with sound`}><PlayIcon /></button>
+              <p className="tst__caption">{t.caption}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="tst__nav">
+          <button className="tst__arrow" type="button" data-tst-prev aria-label="Previous story">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16 10H4M4 10l5.5-5.5M4 10l5.5 5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </button>
+          <p className="tst__count" aria-live="polite"><b data-tst-cur>1</b> / {stories.length}</p>
+          <button className="tst__arrow" type="button" data-tst-next aria-label="Next story">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M16 10l-5.5-5.5M16 10l-5.5 5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </button>
         </div>
       </section>
 

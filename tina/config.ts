@@ -218,6 +218,32 @@ export default defineConfig({
               },
             ],
           },
+          {
+            type: "object",
+            name: "testimonials",
+            label: "Clients about us (відео-відгуки)",
+            fields: [
+              { type: "string", name: "titleAccent", label: "Заголовок — синє слово" },
+              { type: "string", name: "titleRest", label: "Заголовок — решта" },
+              { type: "string", name: "lead", label: "Підзаголовок" },
+              {
+                type: "object",
+                name: "items",
+                label: "Відгуки",
+                list: true,
+                ui: { itemProps: (item) => ({ label: item?.name || "Новий відгук" }) },
+                fields: [
+                  { type: "string", name: "name", label: "Ім'я / назва" },
+                  { type: "string", name: "company", label: "Підпис під ім'ям" },
+                  { type: "image", name: "avatar", label: "Аватар / лого (необов'язково)" },
+                  { type: "string", name: "avatarText", label: "Текст в аватарі, якщо немає картинки (M4M)" },
+                  { type: "string", name: "caption", label: "Підпис унизу картки", ui: textarea },
+                  { type: "string", name: "video", label: "Відео — шлях до mp4 (/uploads/videos/назва.mp4)" },
+                  { type: "image", name: "poster", label: "Кадр-заставка (показується, поки відео вантажиться)" },
+                ],
+              },
+            ],
+          },
         ],
       },
 

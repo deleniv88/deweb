@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { initBurger, initHeader, initCarousel, initServices, initFeatures, initLang, initProjectLine } from "../lib/behaviors";
+import { initBurger, initHeader, initCarousel, initServices, initFeatures, initLang, initProjectLine, initTestimonials } from "../lib/behaviors";
 
 /* Запускає весь інтерактив після рендеру.
    depsKey змінюється, коли в адмінці додають/видаляють кейси, послуги чи переваги —
@@ -8,7 +8,7 @@ import { initBurger, initHeader, initCarousel, initServices, initFeatures, initL
 export default function Behaviors({ depsKey = "", page = "home" }: { depsKey?: string; page?: "home" | "inner" }) {
   useEffect(() => {
     const cleanups = [initBurger(), initHeader(), initLang()];
-    if (page === "home") cleanups.push(initCarousel(), initServices(), initFeatures(), initProjectLine());
+    if (page === "home") cleanups.push(initCarousel(), initServices(), initFeatures(), initProjectLine(), initTestimonials());
     return () => cleanups.forEach((c) => c && c());
   }, [depsKey, page]);
   return null;

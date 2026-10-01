@@ -257,5 +257,39 @@
         "result": "Ongoing care"
       }
     ]
+  },
+  "testimonials": {
+    "titleAccent": "Clients",
+    "titleRest": "about us",
+    "lead": "Short stories from happy clients.",
+    "items": [
+      {
+        "name": "YourAid",
+        "company": "Online psychological support centre",
+        "avatar": "",
+        "avatarText": "YA",
+        "caption": "Website for an online psychological support centre",
+        "video": "/uploads/videos/youraid.mp4",
+        "poster": "/uploads/videos/youraid.webp"
+      },
+      {
+        "name": "Mind for Masters",
+        "company": "M4M",
+        "avatar": "",
+        "avatarText": "M4M",
+        "caption": "Website for online Scrum Master training",
+        "video": "/uploads/videos/m4m.mp4",
+        "poster": "/uploads/videos/m4m.webp"
+      },
+      {
+        "name": "Świadoma Mama",
+        "company": "Shara Consulting",
+        "avatar": "",
+        "avatarText": "ŚM",
+        "caption": "Website for online courses for future moms",
+        "video": "/uploads/videos/shara.mp4",
+        "poster": "/uploads/videos/shara.webp"
+      }
+    ]
   }
 }
