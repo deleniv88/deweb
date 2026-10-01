@@ -542,7 +542,7 @@ html{scroll-padding-top:var(--hdr-h)}
   padding:var(--gap-section) 0 0;
   background:var(--bg);
   overflow:hidden;
-  --card-w:calc(1191 * var(--s));
+  --card-w:calc(940 * var(--s));   /* розмір центрального кейсу (було 1191) */
 }
 .work__head{
   display:flex;
@@ -717,7 +717,7 @@ a:hover > .i-arrow{transform:translate(calc(2 * var(--s)), calc(-2 * var(--s)))}
 
 /* ---- Tablet ---- */
 @media (max-width:1279px){
-  .work{--card-w:calc(640 * var(--s))}
+  .work{--card-w:calc(560 * var(--s))}
   .work__head{padding:0 calc(40 * var(--s))}
   .work__title{font-size:calc(60 * var(--s))}
   .work__lead{font-size:calc(18 * var(--s))}
@@ -737,7 +737,7 @@ a:hover > .i-arrow{transform:translate(calc(2 * var(--s)), calc(-2 * var(--s)))}
 
 /* ---- Mobile ---- */
 @media (max-width:767px){
-  .work{--card-w:calc(310 * var(--s))}
+  .work{--card-w:calc(300 * var(--s))}
   .work__head{align-items:flex-end;gap:calc(16 * var(--s));padding:0 calc(20 * var(--s))}
   .work__intro{gap:calc(20 * var(--s))}
   .work__title{font-size:calc(44 * var(--s))}
