@@ -291,5 +291,106 @@
         "poster": "/uploads/videos/shara.webp"
       }
     ]
+  },
+  "about": {
+    "titleAccent": "Hi,",
+    "titleRest": "I'm Andrew.",
+    "text": "I design and build websites for small and growing businesses: **clinics, salons, IT companies, restaurants and service brands.** For 6 years I've been doing both design and development, so the site you approve in Figma is exactly the site that goes live.",
+    "photo": "/uploads/photo.webp",
+    "name": "Andrew Deleniv",
+    "role": "Founder of Deweb Studio · Warsaw",
+    "soloTitle": "Why I work solo",
+    "soloText": "You talk directly to the person who designs and builds your site. No account managers, no hand-offs between teams, no details lost on the way. One person, one process, full responsibility.",
+    "facts": [
+      {
+        "value": "70+",
+        "label": "websites delivered"
+      },
+      {
+        "value": "6",
+        "label": "years of experience"
+      },
+      {
+        "value": "PL · UA · EN",
+        "label": "languages"
+      }
+    ],
+    "buttonLabel": "Let's talk"
+  },
+  "faq": {
+    "titleAccent": "Questions",
+    "titleRest": "& answers",
+    "lead": "Everything about price, timing and what happens after launch.",
+    "askLabel": "Ask your own question",
+    "items": [
+      {
+        "question": "How much does a website cost?",
+        "answer": "The price depends on the features, the number of sections and pages, and other details. **A simple website starts from €300.** Describe your project, and I'll send you an exact quote."
+      },
+      {
+        "question": "How long does it take?",
+        "answer": "A landing page takes **2–3 weeks**, a corporate website **4–8 weeks**, and an online store **6+ weeks**. The timeline also depends on how quickly you send content and feedback."
+      },
+      {
+        "question": "How does payment work?",
+        "answer": "Work starts after a **50% prepayment** of the total price. The remaining 50% is paid once all work is finished."
+      },
+      {
+        "question": "Are there any extra costs besides development?",
+        "answer": "Yes. If you don't have them yet, the **domain and hosting** are paid separately. I'll tell you the exact amount in advance and add it to the total. This is a **yearly payment**."
+      },
+      {
+        "question": "Will the website be fully mine?",
+        "answer": "Yes. After launch you get the **domain, hosting and all access**. The only exception: if the website stays on my hosting, access to the hosting account itself isn't shared."
+      },
+      {
+        "question": "Can I edit the site myself?",
+        "answer": "Yes, you can change texts and photos **without a developer**. After launch I'll send you a **video guide** on how to manage your website."
+      },
+      {
+        "question": "What happens after launch?",
+        "answer": "**One year of support is included:** technical updates and keeping the website running smoothly. Visual changes and new features aren't part of it and are quoted separately."
+      }
+    ]
+  },
+  "footer": {
+    "chipFrom": "Idea",
+    "chipTo": "Reality",
+    "headline": "Got a great idea you want to bring to life?",
+    "buttonLabel": "Let's talk",
+    "links": [
+      {
+        "icon": "instagram",
+        "label": "Instagram",
+        "url": "#"
+      },
+      {
+        "icon": "telegram",
+        "label": "Telegram",
+        "url": "#"
+      },
+      {
+        "icon": "linkedin",
+        "label": "LinkedIn",
+        "url": "#"
+      },
+      {
+        "icon": "email",
+        "label": "Email",
+        "url": "mailto:"
+      }
+    ],
+    "copyright": "© 2026 · Andrew Deleniv",
+    "middle": "Be kind",
+    "privacyLabel": "Privacy Policy",
+    "privacyUrl": "#"
+  },
+  "quoteForm": {
+    "tag": "Free quote",
+    "title": "Tell me about your project",
+    "subtitle": "A few details are enough. I'll get back to you with a quote and next steps.",
+    "successTitle": "Thank you!",
+    "successText": "Your request is on its way. I'll get back to you soon.",
+    "fabLabel": "Get a free quote"
   }
 }

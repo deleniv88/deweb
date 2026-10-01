@@ -3,7 +3,8 @@
 import { useTina, tinaField } from "tinacms/dist/react";
 import Header from "./Header";
 import Behaviors from "./Behaviors";
-import { featureIcons, stepIcons, HandIcon, ArrowUpRight, CheckCircle, Lines, PlayIcon, SoundOffIcon, SoundOnIcon } from "./Icons";
+import { featureIcons, stepIcons, HandIcon, ArrowUpRight, CheckCircle, Lines, PlayIcon, SoundOffIcon, SoundOnIcon, socialIcons, RightArrow, Rich } from "./Icons";
+import QuoteModal from "./QuoteModal";
 
 type Props = {
   query: string;
@@ -17,14 +18,15 @@ type Props = {
 export default function HomeClient(props: Props) {
   const { data } = useTina(props);
   const home = data.home;
-  const { hero, work, services, features, projectLine, testimonials } = home;
+  const { hero, work, services, features, projectLine, testimonials, about, faq, footer, quoteForm } = home;
 
   const cases = (work?.cases || []).filter(Boolean);
   const svcItems = (services?.items || []).filter(Boolean);
   const featItems = (features?.items || []).filter(Boolean);
   const steps = (projectLine?.steps || []).filter(Boolean);
   const stories = (testimonials?.items || []).filter(Boolean);
-  const depsKey = `${cases.length}-${svcItems.length}-${featItems.length}-${steps.length}-${stories.length}`;
+  const faqs = (faq?.items || []).filter(Boolean);
+  const depsKey = `${cases.length}-${svcItems.length}-${featItems.length}-${steps.length}-${stories.length}-${faqs.length}`;
 
   return (
     <>
@@ -342,6 +344,106 @@ export default function HomeClient(props: Props) {
           </button>
         </div>
       </section>
+
+
+      {/* ================= ABOUT ME ================= */}
+      <section className="about" id="about" aria-labelledby="about-title">
+        <div className="about__grid">
+          <div className="about__card about__photo" data-tina-field={tinaField(about, "photo")}>
+            {about?.photo && <img src={about.photo} alt={about?.name || ""} loading="lazy" decoding="async" />}
+            <div className="about__name">
+              <b data-tina-field={tinaField(about, "name")}>{about?.name}</b>
+              <span data-tina-field={tinaField(about, "role")}>{about?.role}</span>
+            </div>
+          </div>
+          <div className="about__card about__intro">
+            <h2 className="about__title" id="about-title">
+              <em data-tina-field={tinaField(about, "titleAccent")}>{about?.titleAccent}</em>{" "}
+              <span data-tina-field={tinaField(about, "titleRest")}>{about?.titleRest}</span>
+            </h2>
+            <p className="about__text" data-tina-field={tinaField(about, "text")}><Rich text={about?.text} /></p>
+          </div>
+          <div className="about__card about__solo">
+            <h3 data-tina-field={tinaField(about, "soloTitle")}>{about?.soloTitle}</h3>
+            <p data-tina-field={tinaField(about, "soloText")}>{about?.soloText}</p>
+          </div>
+          <div className="about__card about__facts">
+            <ul>
+              {(about?.facts || []).filter(Boolean).map((f: any, i: number) => (
+                <li key={i} data-tina-field={tinaField(f)}>
+                  <b className={String(f.value || "").length > 5 ? "sm" : undefined}>{f.value}</b>
+                  <span>{f.label}</span>
+                </li>
+              ))}
+            </ul>
+            <button className="btn-primary" type="button" data-open-quote data-tina-field={tinaField(about, "buttonLabel")}>
+              <span>{about?.buttonLabel}</span><ArrowUpRight />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= FAQ ================= */}
+      <section className="faq" id="faq" aria-labelledby="faq-title">
+        <div className="faq__in">
+          <div className="faq__side">
+            <h2 className="faq__title" id="faq-title">
+              <em data-tina-field={tinaField(faq, "titleAccent")}>{faq?.titleAccent}</em>{" "}
+              <span data-tina-field={tinaField(faq, "titleRest")}>{faq?.titleRest}</span>
+            </h2>
+            <p className="faq__lead" data-tina-field={tinaField(faq, "lead")}>{faq?.lead}</p>
+            <button className="faq__ask" type="button" data-open-quote data-tina-field={tinaField(faq, "askLabel")}>
+              {faq?.askLabel}<ArrowUpRight />
+            </button>
+          </div>
+          <ol className="faq__list" data-faq key={`faq-${depsKey}`}>
+            {faqs.map((q: any, i: number) => (
+              <li className={`qa${i === 0 ? " is-open" : ""}`} key={i} data-tina-field={tinaField(q)}>
+                <button className="qa__q" type="button" aria-expanded={i === 0} aria-controls={`qa-a${i}`} id={`qa-q${i}`}>
+                  <span className="qa__n">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="qa__t">{q.question}</h3>
+                  <span className="qa__pm" aria-hidden="true"></span>
+                </button>
+                <div className="qa__a" id={`qa-a${i}`} role="region" aria-labelledby={`qa-q${i}`}>
+                  <div><p><Rich text={q.answer} /></p></div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* ================= FOOTER ================= */}
+      <footer className="ft" id="contact">
+        <div className="ft__in">
+          <div className="ft__card">
+            <span className="ft__chip">
+              <span data-tina-field={tinaField(footer, "chipFrom")}>{footer?.chipFrom}</span>
+              <RightArrow />
+              <span data-tina-field={tinaField(footer, "chipTo")}>{footer?.chipTo}</span>
+            </span>
+            <h2 className="ft__h" data-tina-field={tinaField(footer, "headline")}>{footer?.headline}</h2>
+            <button className="ft__cta" type="button" data-open-quote data-tina-field={tinaField(footer, "buttonLabel")}>
+              {footer?.buttonLabel}<ArrowUpRight />
+            </button>
+            <nav className="ft__links" aria-label="Social and contact">
+              {(footer?.links || []).filter(Boolean).map((l: any, i: number) => (
+                <a key={i} href={l.url || "#"} target={String(l.url || "").startsWith("http") ? "_blank" : undefined} rel="noopener" data-tina-field={tinaField(l)}>
+                  {socialIcons[l.icon] || socialIcons.email}{l.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+          <svg className="ft__mark" viewBox="0 0 1000 214" aria-hidden="true"><text x="0" y="200" fontSize="262" textLength="1000" lengthAdjust="spacingAndGlyphs">DEWEB</text></svg>
+          <div className="ft__bottom">
+            <span data-tina-field={tinaField(footer, "copyright")}>{footer?.copyright}</span>
+            <span data-tina-field={tinaField(footer, "middle")}>{footer?.middle}</span>
+            <a href={footer?.privacyUrl || "#"} data-tina-field={tinaField(footer, "privacyLabel")}>{footer?.privacyLabel}</a>
+          </div>
+        </div>
+      </footer>
+
+      <QuoteModal form={quoteForm} />
 
       <Behaviors depsKey={depsKey} page="home" />
     </>

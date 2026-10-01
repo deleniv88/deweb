@@ -60,3 +60,22 @@ export const SoundOffIcon = () => (
 export const SoundOnIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" /><path d="M16 9a4.2 4.2 0 0 1 0 6M18.6 6.5a7.8 7.8 0 0 1 0 11" /></svg>
 );
+
+/* Соцмережі / контакти (футер і форма) */
+export const socialIcons: Record<string, React.ReactElement> = {
+  instagram: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none" /></svg>),
+  telegram: (<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.2 2.9 11.4c-.9.4-.9 1.6.1 1.9l4.7 1.5 1.8 5.6c.2.7 1.1.9 1.6.3l2.6-2.7 4.9 3.6c.6.4 1.4.1 1.6-.6l3.2-15.6c.2-.9-.7-1.6-1.9-1.2zM9.6 14.3l8.2-6.8-6.6 8z" fill="currentColor" /></svg>),
+  linkedin: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M8 10.5V17M8 7.3v.1M11.5 17v-3.8c0-1.6 1-2.7 2.4-2.7s2.1 1 2.1 2.6V17" /></svg>),
+  email: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="m4 7 8 6 8-6" /></svg>),
+  whatsapp: (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" aria-hidden="true"><path d="M12 2.5a9.4 9.4 0 0 0-8 14.3L2.8 21.5l4.8-1.2A9.4 9.4 0 1 0 12 2.5z" /><path d="M9 8.2c.3 2.6 2.4 5 5.2 5.8l1-1.2 1.9.9c-.2 1.2-1.1 1.9-2.2 1.9-3.4 0-6.9-3.4-6.9-6.9 0-1.1.7-2 1.9-2.2l.9 1.9z" /></svg>),
+};
+
+export const CloseIcon = () => (<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12" /></svg>);
+export const RightArrow = () => (<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5" /></svg>);
+export const TickIcon = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12.5 10 17.5 19 7" /></svg>);
+
+/* "текст з **жирним**" → <b> */
+export function Rich({ text }: { text?: string | null }) {
+  const parts = (text || "").split("**");
+  return <>{parts.map((p, i) => (i % 2 ? <b key={i}>{p}</b> : <span key={i}>{p}</span>))}</>;
+}
