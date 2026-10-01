@@ -14,7 +14,7 @@ export default function QuoteModal({ form }: { form?: any }) {
     <>
       <div className="qm" id="quote" aria-hidden="true" data-quote>
         <div className="qm__bg" data-close></div>
-        <div className="qm__box" role="dialog" aria-modal="true" aria-labelledby="qm-title">
+        <div className="qm__box" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="qm-title">
           <button className="qm__x" type="button" data-close aria-label="Close"><CloseIcon /></button>
           <div className="qm__head">
             <span className="qm__tag">{f.tag || "Free quote"}</span>

@@ -1618,11 +1618,17 @@ a:hover > .i-arrow{transform:translate(calc(2 * var(--s)), calc(-2 * var(--s)))}
 .ft__links a{display:inline-flex;align-items:center;gap:calc(8 * var(--s));font-family:var(--f-body);font-weight:600;font-size:calc(16 * var(--s));transition:color .25s}
 .ft__links a:hover{color:var(--accent-b)}
 .ft__links svg{width:calc(18 * var(--s));height:calc(18 * var(--s))}
-/* великий DEWEB: літери щільно (як у Figma: -9%), по ширині — рівно з карткою зверху */
+/* великий DEWEB: літери стоять впритик (без накладання), слово рівно по ширині картки зверху.
+   Відступи між літерами підібрані під метрики Urbanist Bold. */
 .ft__in{--ftw:calc(1560 * var(--s))}
-.ft__mark{display:flex;justify-content:center;margin-top:calc(var(--ftw) * .025);overflow:visible;pointer-events:none;user-select:none}
-.ft__mark span{font-family:var(--f-display);font-weight:700;font-size:calc(var(--ftw) * .3537);line-height:.8;letter-spacing:-.09em;white-space:nowrap;color:rgba(36,37,39,.05);
-  padding-right:.09em; /* компенсує від'ємний інтервал після останньої літери, щоб слово стояло по центру */}
+.ft__mark{margin-top:calc(var(--ftw) * .025);overflow:visible;pointer-events:none;user-select:none;white-space:nowrap;
+  font-family:var(--f-display);font-weight:700;font-size:calc(var(--ftw) * .3441);line-height:.8;color:rgba(36,37,39,.05)}
+.ft__mark span{display:inline-block;margin-left:-.0469em}
+.ft__mark i{font-style:normal}
+.ft__mark i:nth-child(2){margin-left:-.0626em}
+.ft__mark i:nth-child(3){margin-left:-.0803em}
+.ft__mark i:nth-child(4){margin-left:-.0731em}
+.ft__mark i:nth-child(5){margin-left:-.0959em}
 .ft__bottom{display:flex;justify-content:space-between;align-items:center;gap:calc(16 * var(--s));margin-top:calc(20 * var(--s));font-family:var(--f-body);font-weight:500;font-size:calc(15 * var(--s))}
 .ft__bottom a:hover{color:var(--accent-b)}
 
@@ -1765,3 +1771,9 @@ html.is-locked .quote-fab{transform:translate(-50%,calc(100% + 40px))}
   .quote-fab{width:calc(100% - 40 * var(--u));height:calc(66 * var(--u));bottom:calc(16 * var(--u) + env(safe-area-inset-bottom,0px));border-radius:calc(20 * var(--u));font-size:calc(20 * var(--u));gap:calc(14 * var(--u))}
   .quote-fab svg{width:calc(20 * var(--u));height:calc(20 * var(--u))}
 }
+
+/* Lenis — плавний скрол */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
