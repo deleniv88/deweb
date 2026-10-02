@@ -1,4 +1,9 @@
+import Script from "next/script";
 import { ArrowUpRight, CloseIcon, TickIcon, socialIcons } from "./Icons";
+
+/* Cloudflare Turnstile — невидима перевірка "чи це людина".
+   Вмикається, лише якщо на Vercel задано NEXT_PUBLIC_TURNSTILE_SITE_KEY. */
+const TURNSTILE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 /* Поп-ап "Get a free quote". Відкривається з будь-якої кнопки з data-open-quote
    або посилання на #contact (логіка — lib/behaviors.js → initQuote). */
@@ -45,6 +50,7 @@ export default function QuoteModal({ form }: { form?: any }) {
               <textarea className="qf__in" id="qf-msg" name="message" placeholder="A landing page, a corporate site or a store? Any deadline?"></textarea>
             </div>
             <input className="qf__hp" type="text" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+            {TURNSTILE_KEY && <div className="cf-turnstile qf__ts" data-sitekey={TURNSTILE_KEY} data-appearance="interaction-only" data-theme="light"></div>}
             <button className="btn-primary qf__send" type="submit"><span>Send request</span><ArrowUpRight /></button>
             <p className="qf__hint" data-hint="form"></p>
             <p className="qf__note">No spam. Your details are used only to reply to your request.</p>
@@ -56,6 +62,7 @@ export default function QuoteModal({ form }: { form?: any }) {
           </div>
         </div>
       </div>
+      {TURNSTILE_KEY && <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="lazyOnload" />}
       <button className="quote-fab" type="button" data-open-quote data-fab aria-haspopup="dialog">
         <span>{f.fabLabel || "Get a free quote"}</span>
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 7 7 17M7 17V9M7 17h8" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
